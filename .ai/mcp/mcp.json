@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "laravel-boost": {
+      "command": "/usr/bin/php8.3",
+      "args": [
+        "/home/ahmed-elnemr/tailors/elmo5afed/artisan",
+        "boost:mcp"
+      ]
+    }
+  }
+}
