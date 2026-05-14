@@ -22,6 +22,11 @@ class AboutPageResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
+    public static function canCreate(): bool
+    {
+        return static::getModel()::count() === 0;
+    }
+
     public static function getNavigationLabel(): string
     {
         return __('من نحن');
@@ -47,12 +52,22 @@ class AboutPageResource extends Resource
         return AboutPagesTable::configure($table);
     }
 
+    public static function getNavigationUrl(): string
+    {
+        $record = static::getModel()::first();
+        if ($record) {
+            return static::getUrl('edit', ['record' => $record]);
+        }
+
+        return static::getUrl('create');
+    }
+
     public static function getPages(): array
     {
         return [
             'index' => ListAboutPages::route('/'),
+            'create' => CreateAboutPage::route('/create'),
             'edit' => EditAboutPage::route('/{record}/edit'),
         ];
     }
 }
-

@@ -12,20 +12,11 @@ class AboutPageResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'intro' => $this->getTranslation('intro', $locale),
-            'content' => $this->getTranslation('content', $locale),
+            'sub_title' => $this->getTranslation('sub_title', $locale),
+            'title' => $this->getTranslation('title', $locale),
+            'description' => $this->getTranslation('description', $locale),
             'image' => $this->getFirstMediaUrl('about_image'),
             'updated_at' => $this->updated_at,
         ];
     }
 }
-
-
-
-
-
-
-
-
-
-

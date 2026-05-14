@@ -1,4 +1,6 @@
 {
     "Setting": false,
-    "About": true
+    "About": true,
+    "CaseStudy": true,
+    "Portfolio": true
 }

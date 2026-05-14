@@ -311,5 +311,20 @@
     "Created": "تاريخ الإنشاء",
     "Blog posts loaded successfully": "تم تحميل المقالات بنجاح",
     "Blog post loaded successfully": "تم تحميل المقالة بنجاح",
-    "Blog post not found": "المقالة غير موجودة"
+    "Blog post not found": "المقالة غير موجودة",
+    "Case Study Content": "محتوى دراسة الحالة",
+    "Main Image": "الصورة الأساسية",
+    "Case studies loaded successfully": "تم تحميل دراسات الحالة بنجاح",
+    "Case study loaded successfully": "تم تحميل دراسة الحالة بنجاح",
+    "Case study not found": "دراسة الحالة غير موجودة",
+    "Portfolio": "المعرض",
+    "Work": "عمل",
+    "Works": "المعرض",
+    "Work Details": "تفاصيل العمل",
+    "Subtitle": "العنوان الفرعي",
+    "Sort Order": "ترتيب العرض",
+    "Thumbnail Image": "الصورة المصغرة",
+    "Video Thumbnail": "صورة غلاف الفيديو",
+    "Video File": "ملف الفيديو",
+    "Works loaded successfully": "تم تحميل المعرض بنجاح"
 }
