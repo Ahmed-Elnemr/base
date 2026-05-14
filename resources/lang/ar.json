@@ -352,5 +352,22 @@
     "Basic Information": "معلومات أساسية",
     "Process Steps": "خطوات العمل",
     "Related Portfolio": "الأعمال المرتبطة",
-    "Settings": "الإعدادات"
+    "Settings": "الإعدادات",
+    "Project Requests": "طلبات المشاريع",
+    "Request": "طلب",
+    "Pending": "قيد الانتظار",
+    "Contacted": "تم التواصل",
+    "Completed": "مكتمل",
+    "Cancelled": "ملغي",
+    "Your project request has been sent successfully. We will contact you soon.": "تم إرسال طلب مشروعك بنجاح. سنتواصل معك قريباً.",
+    "Name": "الاسم",
+    "Email": "البريد الإلكتروني",
+    "Phone": "رقم الهاتف",
+    "Status": "الحالة",
+    "Created At": "تاريخ الطلب",
+    "Company": "الشركة",
+    "Description": "الوصف",
+    "The :attribute field is required.": "حقل :attribute مطلوب.",
+    "The :attribute must be a valid email address.": "يجب أن يكون :attribute بريداً إلكترونياً صحيحاً.",
+    "The selected :attribute is invalid.": "الـ :attribute المختار غير صالح."
 }

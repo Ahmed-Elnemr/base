@@ -18,6 +18,42 @@ class SettingDatabaseSeeder extends Seeder
 
         $settings = [
             [
+                'name' => ['en' => 'Site Name', 'ar' => 'اسم الموقع'],
+                'key' => 'site_name',
+                'type' => SettingTypeEnum::SHORT_TEXT,
+                'is_translatable' => true,
+            ],
+            [
+                'name' => ['en' => 'Site Description', 'ar' => 'وصف الموقع'],
+                'key' => 'site_description',
+                'type' => SettingTypeEnum::LONG_TEXT,
+                'is_translatable' => true,
+            ],
+            [
+                'name' => ['en' => 'Site Email', 'ar' => 'البريد الإلكتروني للموقع'],
+                'key' => 'site_email',
+                'type' => SettingTypeEnum::SHORT_TEXT,
+                'is_translatable' => false,
+            ],
+            [
+                'name' => ['en' => 'Site Phone', 'ar' => 'رقم هاتف الموقع'],
+                'key' => 'site_phone',
+                'type' => SettingTypeEnum::SHORT_TEXT,
+                'is_translatable' => false,
+            ],
+            [
+                'name' => ['en' => 'LinkedIn Link', 'ar' => 'رابط لينكد إن'],
+                'key' => 'social_linkedin',
+                'type' => SettingTypeEnum::URL,
+                'is_translatable' => false,
+            ],
+            [
+                'name' => ['en' => 'WhatsApp Number', 'ar' => 'رقم الواتساب'],
+                'key' => 'social_whatsapp',
+                'type' => SettingTypeEnum::SHORT_TEXT,
+                'is_translatable' => false,
+            ],
+            [
                 'name' => ['en' => 'Arabic Logo', 'ar' => 'اللوجو العربي'],
                 'key' => 'logo_ar',
                 'type' => SettingTypeEnum::IMAGE,

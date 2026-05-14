@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->json('name');
             $table->string('key');
-            $table->string('value');
+            $table->text('value')->nullable();
             $table->integer('type')->default(1);
             $table->boolean('is_translatable')->default(1);
             $table->timestamps();
