@@ -2,5 +2,6 @@
     "Setting": false,
     "About": true,
     "CaseStudy": true,
-    "Portfolio": true
+    "Portfolio": true,
+    "Service": true
 }
