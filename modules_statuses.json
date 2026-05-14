@@ -1,8 +1,9 @@
 {
-    "Setting": true,
+    "Setting": false,
     "About": true,
     "CaseStudy": true,
     "Portfolio": true,
     "Service": true,
-    "Project": true
+    "Project": true,
+    "Home": true
 }
