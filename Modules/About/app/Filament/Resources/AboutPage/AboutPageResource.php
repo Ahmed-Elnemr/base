@@ -24,17 +24,17 @@ class AboutPageResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('About');
+        return __('من نحن');
     }
 
     public static function getModelLabel(): string
     {
-        return __('About page');
+        return __('محتوى');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('About pages');
+        return __('من نحن');
     }
 
     public static function form(Schema $schema): Schema
@@ -51,7 +51,6 @@ class AboutPageResource extends Resource
     {
         return [
             'index' => ListAboutPages::route('/'),
-            'create' => CreateAboutPage::route('/create'),
             'edit' => EditAboutPage::route('/{record}/edit'),
         ];
     }

@@ -39,14 +39,10 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => '#ED6F31',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-//                AccountWidget::class,
-//                FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -63,9 +59,7 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->databaseNotifications()
-            ->databaseNotificationsPolling('10s')
-            ->plugin(ModulesPlugin::make(),)
-            ->plugin(\Modules\Blog\Filament\BlogPlugin::make())
-            ->plugin(\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make());
+            ->databaseNotificationsPolling('30s')
+            ->plugin(ModulesPlugin::make());
     }
 }

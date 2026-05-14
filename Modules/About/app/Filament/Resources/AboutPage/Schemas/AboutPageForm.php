@@ -5,6 +5,7 @@ namespace Modules\About\Filament\Resources\AboutPage\Schemas;
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -21,8 +22,16 @@ class AboutPageForm
                         ->locales(['ar', 'en'])
                         ->columnSpanFull()
                         ->schema([
-                            RichEditor::make('intro')
-                                ->label(__('Intro copy'))
+                            TextInput::make('sub_title')
+                                ->label(__('Sub Title'))
+                                ->placeholder(__('About Us'))
+                                ->required(),
+                            TextInput::make('title')
+                                ->label(__('Title'))
+                                ->placeholder(__('Agency Name'))
+                                ->required(),
+                            RichEditor::make('description')
+                                ->label(__('Description'))
                                 ->required()
                                 ->toolbarButtons([
                                     'bold',
@@ -30,10 +39,7 @@ class AboutPageForm
                                     'underline',
                                     'bulletList',
                                     'orderedList',
-                                ]),
-                            RichEditor::make('content')
-                                ->label(__('Body'))
-                                ->required()
+                                ])
                                 ->columnSpanFull(),
                         ]),
                     SpatieMediaLibraryFileUpload::make('about_image')

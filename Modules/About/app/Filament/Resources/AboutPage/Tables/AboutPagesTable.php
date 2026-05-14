@@ -26,10 +26,13 @@ class AboutPagesTable
                     ->collection('about_image')
                     ->square()
                     ->grow(false),
-                Tables\Columns\TextColumn::make('intro')
-                    ->label(__('Intro'))
-                    ->formatStateUsing(fn (AboutPage $record) => Str::limit(strip_tags($record->getTranslation('intro', app()->getLocale())), 80))
-                    ->wrap()
+                Tables\Columns\TextColumn::make('sub_title')
+                    ->label(__('Sub Title'))
+                    ->formatStateUsing(fn (AboutPage $record) => Str::limit(strip_tags($record->getTranslation('sub_title', app()->getLocale())), 50))
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('title')
+                    ->label(__('Title'))
+                    ->formatStateUsing(fn (AboutPage $record) => Str::limit(strip_tags($record->getTranslation('title', app()->getLocale())), 50))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->label(__('Active'))
@@ -40,7 +43,6 @@ class AboutPagesTable
                     ->label(__('Updated at')),
             ])
             ->headerActions([
-                CreateAction::make(),
             ])
             ->actions([
                 ViewAction::make()
@@ -50,13 +52,15 @@ class AboutPagesTable
                             ->columns(1)
                             ->schema([
                                 SchemaImage::make(
-                                    fn (AboutPage $record) => $record->getFirstMediaUrl('about_image') ?: 'https://via.placeholder.com/800x500/FEE2E2/1B1B18?text=ELMO5AFED',
+                                    fn (AboutPage $record) => $record->getFirstMediaUrl('about_image') ?: 'https://via.placeholder.com/800x500/FEE2E2/1B1B18?text=PURPLE',
                                     fn () => __('Primary image')
                                 )->imageHeight(220),
-                                SchemaText::make(fn (AboutPage $record) => __('Intro (Arabic)') . ': ' . strip_tags($record->getTranslation('intro', 'ar'))),
-                                SchemaText::make(fn (AboutPage $record) => __('Intro (English)') . ': ' . strip_tags($record->getTranslation('intro', 'en'))),
-                                SchemaText::make(fn (AboutPage $record) => __('Content (Arabic)') . ': ' . strip_tags($record->getTranslation('content', 'ar')))->color('gray-600'),
-                                SchemaText::make(fn (AboutPage $record) => __('Content (English)') . ': ' . strip_tags($record->getTranslation('content', 'en')))->color('gray-600'),
+                                SchemaText::make(fn (AboutPage $record) => __('Sub Title (Arabic)') . ': ' . strip_tags($record->getTranslation('sub_title', 'ar'))),
+                                SchemaText::make(fn (AboutPage $record) => __('Sub Title (English)') . ': ' . strip_tags($record->getTranslation('sub_title', 'en'))),
+                                SchemaText::make(fn (AboutPage $record) => __('Title (Arabic)') . ': ' . strip_tags($record->getTranslation('title', 'ar'))),
+                                SchemaText::make(fn (AboutPage $record) => __('Title (English)') . ': ' . strip_tags($record->getTranslation('title', 'en'))),
+                                SchemaText::make(fn (AboutPage $record) => __('Description (Arabic)') . ': ' . Str::limit(strip_tags($record->getTranslation('description', 'ar')), 200))->color('gray-600'),
+                                SchemaText::make(fn (AboutPage $record) => __('Description (English)') . ': ' . Str::limit(strip_tags($record->getTranslation('description', 'en')), 200))->color('gray-600'),
                             ]),
                         SchemaSection::make(__('Status'))
                             ->columns(2)
@@ -66,10 +70,8 @@ class AboutPagesTable
                             ]),
                     ]),
                 EditAction::make(),
-                DeleteAction::make(),
             ])
             ->bulkActions([
-                DeleteBulkAction::make(),
             ]);
     }
 }

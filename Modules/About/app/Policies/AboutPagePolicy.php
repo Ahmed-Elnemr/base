@@ -1,70 +1,35 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\About\app\Policies;
 
-use Illuminate\Foundation\Auth\User as AuthUser;
-use Modules\About\app\Models\AboutPage;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AboutPagePolicy
 {
     use HandlesAuthorization;
-    
-    public function viewAny(AuthUser $authUser): bool
+
+    public function viewAny($user): bool
     {
-        return $authUser->can('ViewAny:AboutPage');
+        return true;
     }
 
-    public function view(AuthUser $authUser, AboutPage $aboutPage): bool
+    public function view($user): bool
     {
-        return $authUser->can('View:AboutPage');
+        return true;
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create($user): bool
     {
-        return $authUser->can('Create:AboutPage');
+        return false;
     }
 
-    public function update(AuthUser $authUser, AboutPage $aboutPage): bool
+    public function update($user): bool
     {
-        return $authUser->can('Update:AboutPage');
+        return true;
     }
 
-    public function delete(AuthUser $authUser, AboutPage $aboutPage): bool
+    public function delete($user): bool
     {
-        return $authUser->can('Delete:AboutPage');
+        return false;
     }
-
-    public function restore(AuthUser $authUser, AboutPage $aboutPage): bool
-    {
-        return $authUser->can('Restore:AboutPage');
-    }
-
-    public function forceDelete(AuthUser $authUser, AboutPage $aboutPage): bool
-    {
-        return $authUser->can('ForceDelete:AboutPage');
-    }
-
-    public function forceDeleteAny(AuthUser $authUser): bool
-    {
-        return $authUser->can('ForceDeleteAny:AboutPage');
-    }
-
-    public function restoreAny(AuthUser $authUser): bool
-    {
-        return $authUser->can('RestoreAny:AboutPage');
-    }
-
-    public function replicate(AuthUser $authUser, AboutPage $aboutPage): bool
-    {
-        return $authUser->can('Replicate:AboutPage');
-    }
-
-    public function reorder(AuthUser $authUser): bool
-    {
-        return $authUser->can('Reorder:AboutPage');
-    }
-
 }

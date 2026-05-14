@@ -15,20 +15,23 @@ class AboutPage extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
-        'intro',
-        'content',
+        'sub_title',
+        'title',
+        'description',
         'is_active',
     ];
 
     protected $casts = [
-        'intro'     => 'array',
-        'content'   => 'array',
-        'is_active' => 'boolean',
+        'sub_title'   => 'array',
+        'title'       => 'array',
+        'description' => 'array',
+        'is_active'   => 'boolean',
     ];
 
     protected array $translatable = [
-        'intro',
-        'content',
+        'sub_title',
+        'title',
+        'description',
     ];
 
     public function scopeActive(Builder $query): Builder
