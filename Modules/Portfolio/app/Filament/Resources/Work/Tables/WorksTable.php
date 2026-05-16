@@ -30,6 +30,7 @@ class WorksTable
                     ->color(fn (string $state): string => match ($state) {
                         'image' => 'info',
                         'video' => 'warning',
+                        default => 'gray',
                     }),
                 ToggleColumn::make('is_active')
                     ->label(__('Active')),

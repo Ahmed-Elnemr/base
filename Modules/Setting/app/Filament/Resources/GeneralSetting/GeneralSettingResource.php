@@ -18,12 +18,22 @@ class GeneralSettingResource extends Resource
 
     protected static string|\BackedEnum|null $navigationIcon = Heroicon::Cog;
 
-    public static function getNavigationLabel(): string
+    public static function getModelLabel(): string
+    {
+        return __('General Setting');
+    }
+
+    public static function getPluralModelLabel(): string
     {
         return __('General Settings');
     }
 
-    protected static ?int $navigationSort = 1;
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Settings');
+    }
+
+    protected static ?int $navigationSort = 100;
 
     public static function canCreate(): bool
     {

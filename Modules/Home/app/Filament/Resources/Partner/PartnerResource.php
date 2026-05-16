@@ -34,7 +34,7 @@ class PartnerResource extends Resource
         return __('Partners');
     }
 
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 5;
 
     public static function getNavigationGroup(): ?string
     {

@@ -20,21 +20,26 @@ class WorkResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
 
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 2;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Content Management');
+    }
 
     public static function getNavigationLabel(): string
     {
-        return __('المعرض');
+        return __('Portfolio');
     }
 
     public static function getModelLabel(): string
     {
-        return __('عمل');
+        return __('Work');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('المعرض');
+        return __('Portfolio');
     }
 
     public static function form(Schema $schema): Schema

@@ -22,19 +22,24 @@ class CaseStudyResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Content Management');
+    }
+
     public static function getNavigationLabel(): string
     {
-        return __('دراسات الحالة');
+        return __('Case Studies');
     }
 
     public static function getModelLabel(): string
     {
-        return __('دراسة حالة');
+        return __('Case Study');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('دراسات الحالة');
+        return __('Case Studies');
     }
 
     public static function form(Schema $schema): Schema

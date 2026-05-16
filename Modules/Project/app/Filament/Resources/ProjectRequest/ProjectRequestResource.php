@@ -23,7 +23,12 @@ class ProjectRequestResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
-    protected static ?int $navigationSort = 7;
+    protected static ?int $navigationSort = 1;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('User Inquiries');
+    }
 
     public static function getNavigationLabel(): string
     {
@@ -105,6 +110,7 @@ class ProjectRequestResource extends Resource
                         'contacted' => 'info',
                         'completed' => 'success',
                         'cancelled' => 'danger',
+                        default => 'gray',
                     }),
                 TextColumn::make('created_at')
                     ->label(__('Created At'))

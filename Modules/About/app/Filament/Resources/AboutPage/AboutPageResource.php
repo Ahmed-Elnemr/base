@@ -20,7 +20,12 @@ class AboutPageResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInformationCircle;
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Content Management');
+    }
 
     public static function canCreate(): bool
     {
@@ -29,17 +34,17 @@ class AboutPageResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('من نحن');
+        return __('About Us');
     }
 
     public static function getModelLabel(): string
     {
-        return __('محتوى');
+        return __('About Us');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('من نحن');
+        return __('About Us');
     }
 
     public static function form(Schema $schema): Schema

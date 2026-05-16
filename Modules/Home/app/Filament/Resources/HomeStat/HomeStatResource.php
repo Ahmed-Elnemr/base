@@ -31,7 +31,7 @@ class HomeStatResource extends Resource
         return __('Stats');
     }
 
-    protected static ?int $navigationSort = 11;
+    protected static ?int $navigationSort = 6;
 
     public static function getNavigationGroup(): ?string
     {
