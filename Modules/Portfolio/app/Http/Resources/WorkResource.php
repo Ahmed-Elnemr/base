@@ -15,8 +15,8 @@ class WorkResource extends JsonResource
             'title' => $this->getTranslation('title', $locale),
             'subtitle' => $this->getTranslation('subtitle', $locale),
             'type' => $this->type,
-            'thumbnail' => $this->getFirstMediaUrl('work_thumbnail'),
-            'file' => $this->type === 'video' ? $this->getFirstMediaUrl('work_file') : null,
+            'thumbnail' => $this->getFirstMediaUrl('work_thumbnail') ? url($this->getFirstMediaUrl('work_thumbnail')) : null,
+            'file' => $this->type === 'video' ? ($this->getFirstMediaUrl('work_file') ? url($this->getFirstMediaUrl('work_file')) : null) : null,
             'sort_order' => $this->sort_order,
             'created_at' => $this->created_at,
         ];

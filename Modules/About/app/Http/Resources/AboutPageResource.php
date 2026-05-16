@@ -15,7 +15,7 @@ class AboutPageResource extends JsonResource
             'sub_title' => $this->getTranslation('sub_title', $locale),
             'title' => $this->getTranslation('title', $locale),
             'description' => $this->getTranslation('description', $locale),
-            'image' => $this->getFirstMediaUrl('about_image'),
+            'image' => $this->getFirstMediaUrl('about_image') ? url($this->getFirstMediaUrl('about_image')) : null,
             'updated_at' => $this->updated_at,
         ];
     }

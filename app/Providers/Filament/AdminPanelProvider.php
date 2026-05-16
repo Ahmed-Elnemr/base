@@ -30,9 +30,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->authGuard('admin')
             ->sidebarCollapsibleOnDesktop()
-            ->brandName('LOGO?')
-//            ->favicon(getSettingMediaUrl('logo', 'settings'))
-//            ->brandLogo(getSettingMediaUrl('logo','settings',))
+            ->brandName('Purble Agency')
+            ->brandLogo(fn () => \Modules\Setting\app\Models\GeneralSetting::first()?->getFirstMediaUrl('logo_admin') ?: null)
             ->brandLogoHeight('3rem')
             ->login()
             ->colors([

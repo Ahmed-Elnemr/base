@@ -10,10 +10,16 @@ class ListCTASections extends ListRecords
 {
     protected static string $resource = CTASectionResource::class;
 
+    public function mount(): void
+    {
+        $record = CTASection::first();
+        if ($record) {
+            $this->redirect(CTASectionResource::getUrl('edit', ['record' => $record]));
+        }
+    }
+
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        return [];
     }
 }

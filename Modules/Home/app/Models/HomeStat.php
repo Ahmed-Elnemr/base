@@ -17,7 +17,7 @@ class HomeStat extends Model
         'sort_order',
     ];
 
-    public $translatable = ['title'];
+    public $translatable = ['title', 'value'];
 
     public function scopeActive($query)
     {

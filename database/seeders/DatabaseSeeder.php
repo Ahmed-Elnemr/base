@@ -18,6 +18,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             AboutSeeder::class,
+            \Modules\Home\database\seeders\HomeSeeder::class,
+            \Modules\Service\database\seeders\ServiceSeeder::class,
+            \Modules\Portfolio\database\seeders\PortfolioSeeder::class,
+            \Modules\Setting\database\seeders\SettingSeeder::class,
+            \Modules\CaseStudy\database\seeders\CaseStudySeeder::class,
+            \Modules\Project\database\seeders\ProjectSeeder::class,
         ]);
     }
 }

@@ -38,7 +38,16 @@ class CTASectionResource extends Resource
 
     public static function canCreate(): bool
     {
-        return CTASection::count() < 1;
+        return false;
+    }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = CTASection::first();
+        if ($record) {
+            return static::getUrl('edit', ['record' => $record]);
+        }
+        return static::getUrl('index');
     }
 
     public static function form(Schema $schema): Schema
@@ -52,9 +61,11 @@ class CTASectionResource extends Resource
                             ->label(__('Title'))
                             ->required(),
                         TextInput::make('subtitle')
-                            ->label(__('Subtitle')),
+                            ->label(__('Subtitle'))
+                            ->required(),
                         TextInput::make('button_text')
-                            ->label(__('Button Text')),
+                            ->label(__('Button Text'))
+                            ->required(),
                     ])->columnSpanFull(),
                 TextInput::make('button_url')
                     ->label(__('Button URL'))

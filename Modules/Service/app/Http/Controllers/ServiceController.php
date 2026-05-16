@@ -52,7 +52,7 @@ class ServiceController extends Controller
             ->first();
 
         if (! $service) {
-            return self::errorResponse(message: __('Service not found'), status: 404);
+            return self::failResponse(statusCode: 404, message: __('Service not found'));
         }
 
         return self::successResponse(

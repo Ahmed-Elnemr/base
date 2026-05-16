@@ -48,6 +48,10 @@ class Service extends Model implements HasMedia
         'title',
         'description',
         'short_description',
+        'stats',
+        'features',
+        'steps',
+        'faqs',
     ];
 
     public function category(): BelongsTo

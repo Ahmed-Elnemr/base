@@ -2,6 +2,7 @@
 
 namespace Modules\Service\Filament\Resources\ServiceCategory;
 
+use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;

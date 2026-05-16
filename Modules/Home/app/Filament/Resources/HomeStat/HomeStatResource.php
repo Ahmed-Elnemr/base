@@ -53,11 +53,11 @@ class HomeStatResource extends Resource
                         TextInput::make('title')
                             ->label(__('Title'))
                             ->required(),
+                        TextInput::make('value')
+                            ->label(__('Value'))
+                            ->placeholder('e.g. 400+')
+                            ->required(),
                     ])->columnSpanFull(),
-                TextInput::make('value')
-                    ->label(__('Value'))
-                    ->placeholder('e.g. 400+')
-                    ->required(),
                 Toggle::make('is_active')
                     ->label(__('Is Active'))
                     ->default(true),

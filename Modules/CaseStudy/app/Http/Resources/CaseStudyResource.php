@@ -15,7 +15,7 @@ class CaseStudyResource extends JsonResource
             'title' => $this->getTranslation('title', $locale),
             'description' => $this->getTranslation('description', $locale),
             'slug' => $this->slug,
-            'image' => $this->getFirstMediaUrl('case_study_image'),
+            'image' => $this->getFirstMediaUrl('case_study_image') ? url($this->getFirstMediaUrl('case_study_image')) : null,
             'created_at' => $this->created_at,
         ];
     }

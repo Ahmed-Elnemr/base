@@ -46,7 +46,16 @@ class HeroSectionResource extends Resource
 
     public static function canCreate(): bool
     {
-        return HeroSection::count() < 1;
+        return false;
+    }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = HeroSection::first();
+        if ($record) {
+            return static::getUrl('edit', ['record' => $record]);
+        }
+        return static::getUrl('index');
     }
 
     public static function form(Schema $schema): Schema
@@ -63,9 +72,11 @@ class HeroSectionResource extends Resource
                             ->label(__('Subtitle'))
                             ->required(),
                         TextInput::make('button_text_1')
-                            ->label(__('Button Text 1')),
+                            ->label(__('Button Text 1'))
+                            ->required(),
                         TextInput::make('button_text_2')
-                            ->label(__('Button Text 2')),
+                            ->label(__('Button Text 2'))
+                            ->required(),
                     ])->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('hero_image')
                     ->label(__('Hero Image'))

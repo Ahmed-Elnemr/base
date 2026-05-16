@@ -47,7 +47,16 @@ class WhyUsSectionResource extends Resource
 
     public static function canCreate(): bool
     {
-        return WhyUsSection::count() < 1;
+        return false;
+    }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = WhyUsSection::first();
+        if ($record) {
+            return static::getUrl('edit', ['record' => $record]);
+        }
+        return static::getUrl('index');
     }
 
     public static function form(Schema $schema): Schema

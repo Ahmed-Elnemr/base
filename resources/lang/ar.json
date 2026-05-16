@@ -391,5 +391,16 @@
     "Description": "الوصف",
     "Subtitle": "العنوان الفرعي",
     "Button Text": "نص الزر",
-    "Button URL": "رابط الزر"
+    "Button URL": "رابط الزر",
+    "General Settings": "إعدادات عامة",
+    "Address": "العنوان",
+    "Header Logo": "شعار الهيدر",
+    "Footer Logo": "شعار الفوتر",
+    "Admin Logo": "شعار لوحة التحكم",
+    "Button Text 1": "نص الزر 1",
+    "Button Text 2": "نص الزر 2",
+    "Button URL 1": "رابط الزر 1",
+    "Button URL 2": "رابط الزر 2",
+    "Hero Image": "صورة الهيرو",
+    "Sub Title": "العنوان الفرعي"
 }

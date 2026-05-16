@@ -5,81 +5,45 @@ namespace Modules\Setting\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Trait\ResponseTrait;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Modules\Setting\app\Models\Setting;
-use Modules\Setting\Transformers\SettingResource;
+use Modules\Setting\app\Models\GeneralSetting;
+use Modules\Service\app\Models\ServiceCategory;
 
 class SettingController extends Controller
 {
     use ResponseTrait;
 
-    public function all(): JsonResponse
+    public function settings(): JsonResponse
     {
-        $settings = Setting::query()->get();
+        $locale = app()->getLocale();
+        $settings = GeneralSetting::first();
+        $categories = ServiceCategory::active()
+            ->with(['services' => fn($q) => $q->active()->orderBy('sort_order')])
+            ->orderBy('sort_order')
+            ->get();
 
         return self::successResponse(
             message: __('Settings loaded successfully'),
-            data: SettingResource::collection($settings)
+            data: [
+                'contact' => $settings ? [
+                    'address' => $settings->getTranslation('address', $locale),
+                    'email' => $settings->email,
+                    'phone' => $settings->phone,
+                    'social_links' => $settings->social_links,
+                ] : null,
+                'logos' => $settings ? [
+                    'header' => $settings->getFirstMediaUrl('logo_header') ? url($settings->getFirstMediaUrl('logo_header')) : null,
+                    'footer' => $settings->getFirstMediaUrl('logo_footer') ? url($settings->getFirstMediaUrl('logo_footer')) : null,
+                ] : null,
+                'categories' => $categories->map(fn($cat) => [
+                    'id' => $cat->id,
+                    'name' => $cat->getTranslation('name', $locale),
+                    'services' => $cat->services->map(fn($service) => [
+                        'id' => $service->id,
+                        'title' => $service->getTranslation('title', $locale),
+                        'slug' => $service->slug,
+                    ]),
+                ]),
+            ]
         );
     }
-
-    public function showByKey(string $key): JsonResponse
-    {
-        $setting = Setting::where('key', $key)->first();
-
-        if (!$setting) {
-            return self::failResponse(404, __('Setting not found'));
-        }
-
-        return self::successResponse(
-            message: __('Setting loaded successfully'),
-            data: new SettingResource($setting)
-        );
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('setting::index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('setting::create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {}
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('setting::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('setting::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
 }

@@ -29,7 +29,8 @@ class WorkForm
                                     ->label(__('Title'))
                                     ->required(),
                                 TextInput::make('subtitle')
-                                    ->label(__('Subtitle')),
+                                    ->label(__('Subtitle'))
+                                    ->required(),
                             ]),
                         Select::make('type')
                             ->label(__('Type'))
