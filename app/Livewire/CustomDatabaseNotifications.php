@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use Filament\Notifications\Livewire\DatabaseNotifications as BaseDatabaseNotifications;
+use Filament\Livewire\DatabaseNotifications as BaseDatabaseNotifications;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
