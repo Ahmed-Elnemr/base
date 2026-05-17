@@ -14,10 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(
-            \Filament\Livewire\DatabaseNotifications::class,
-            \App\Livewire\CustomDatabaseNotifications::class
-        );
+        //
     }
 
     /**
@@ -26,8 +23,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
-
-        \Livewire\Livewire::component('database-notifications', \App\Livewire\CustomDatabaseNotifications::class);
 
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch
