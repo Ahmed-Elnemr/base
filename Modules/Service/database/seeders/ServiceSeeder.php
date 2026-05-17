@@ -41,6 +41,10 @@ class ServiceSeeder extends Seeder
                     'en' => 'We create unique and memorable logos.',
                     'ar' => 'نحن نصنع شعارات فريدة ولا تُنسى.',
                 ],
+                'description' => [
+                    'en' => 'Professional logo design services to help establish your brand identity.',
+                    'ar' => 'خدمات تصميم شعار احترافية لمساعدتك في ترسيخ هوية علامتك التجارية.',
+                ],
                 'is_active' => true,
             ]);
 
@@ -54,6 +58,10 @@ class ServiceSeeder extends Seeder
                 'short_description' => [
                     'en' => 'Increase your visibility on search engines.',
                     'ar' => 'قم بزيادة ظهورك على محركات البحث.',
+                ],
+                'description' => [
+                    'en' => 'Complete search engine optimization to boost your website traffic and rankings.',
+                    'ar' => 'تحسين كامل لمحركات البحث لزيادة زيارات موقعك وتحسين ترتيبه.',
                 ],
                 'is_active' => true,
             ]);
