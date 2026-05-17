@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('about_pages', function (Blueprint $table) {
             $table->id();
-            $table->json('sub_title')->nullable();
-            $table->json('title')->nullable();
-            $table->json('description')->nullable();
+            $table->longText('sub_title')->nullable();
+            $table->longText('title')->nullable();
+            $table->longText('description')->nullable();
             $table->boolean('is_active')->default(true)->index();
             $table->timestamps();
         });

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('works', function (Blueprint $blueprint) {
             $blueprint->id();
-            $blueprint->json('title');
-            $blueprint->json('subtitle')->nullable();
+            $blueprint->longText('title');
+            $blueprint->longText('subtitle')->nullable();
             $blueprint->string('type')->default('image'); // image, video
             $blueprint->boolean('is_active')->default(true);
             $blueprint->integer('sort_order')->default(0);

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('general_settings', function (Blueprint $table) {
             $table->id();
-            $table->json('address')->nullable();
+            $table->longText('address')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('website')->nullable();
-            $table->json('social_links')->nullable();
+            $table->longText('social_links')->nullable();
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('service_categories', function (Blueprint $blueprint) {
             $blueprint->id();
-            $blueprint->json('name');
+            $blueprint->longText('name');
             $blueprint->boolean('is_active')->default(true);
             $blueprint->integer('sort_order')->default(0);
             $blueprint->timestamps();

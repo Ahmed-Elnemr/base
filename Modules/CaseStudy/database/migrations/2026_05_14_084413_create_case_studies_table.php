@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('case_studies', function (Blueprint $blueprint) {
             $blueprint->id();
-            $blueprint->json('title');
-            $blueprint->json('description');
+            $blueprint->longText('title');
+            $blueprint->longText('description');
             $blueprint->string('slug')->unique();
             $blueprint->boolean('is_active')->default(true);
             $blueprint->timestamps();

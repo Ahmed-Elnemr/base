@@ -14,10 +14,10 @@ return new class extends Migration
         // Hero Section (Single Record)
         Schema::create('hero_sections', function (Blueprint $table) {
             $table->id();
-            $table->json('title');
-            $table->json('subtitle');
-            $table->json('button_text_1')->nullable();
-            $table->json('button_text_2')->nullable();
+            $table->longText('title');
+            $table->longText('subtitle');
+            $table->longText('button_text_1')->nullable();
+            $table->longText('button_text_2')->nullable();
             $table->string('button_url_1')->nullable();
             $table->string('button_url_2')->nullable();
             $table->timestamps();
@@ -26,9 +26,9 @@ return new class extends Migration
         // Why Us Section (Single Record)
         Schema::create('why_us_sections', function (Blueprint $table) {
             $table->id();
-            $table->json('title');
-            $table->json('content');
-            $table->json('points')->nullable(); // Array of strings
+            $table->longText('title');
+            $table->longText('content');
+            $table->longText('points')->nullable(); // Array of strings
             $table->timestamps();
         });
 
@@ -44,7 +44,7 @@ return new class extends Migration
         // Stats (Multiple Records)
         Schema::create('home_stats', function (Blueprint $table) {
             $table->id();
-            $table->json('title');
+            $table->longText('title');
             $table->string('value');
             $table->boolean('is_active')->default(true);
             $table->integer('sort_order')->default(0);

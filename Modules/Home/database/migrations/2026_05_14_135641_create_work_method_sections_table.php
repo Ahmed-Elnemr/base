@@ -14,17 +14,17 @@ return new class extends Migration
         // Work Method Section (Single Record)
         Schema::create('work_method_sections', function (Blueprint $table) {
             $table->id();
-            $table->json('title');
-            $table->json('steps')->nullable(); // Repeater: number, title, description
+            $table->longText('title');
+            $table->longText('steps')->nullable(); // Repeater: number, title, description
             $table->timestamps();
         });
 
         // CTA Section (Single Record)
         Schema::create('cta_sections', function (Blueprint $table) {
             $table->id();
-            $table->json('title');
-            $table->json('subtitle')->nullable();
-            $table->json('button_text')->nullable();
+            $table->longText('title');
+            $table->longText('subtitle')->nullable();
+            $table->longText('button_text')->nullable();
             $table->string('button_url')->nullable();
             $table->timestamps();
         });

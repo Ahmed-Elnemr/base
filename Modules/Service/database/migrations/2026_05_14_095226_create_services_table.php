@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $blueprint) {
             $blueprint->id();
             $blueprint->foreignId('service_category_id')->constrained()->cascadeOnDelete();
-            $blueprint->json('title');
+            $blueprint->longText('title');
             $blueprint->string('slug')->unique();
-            $blueprint->json('description');
-            $blueprint->json('short_description');
-            $blueprint->json('stats')->nullable(); // [{"label": "Project", "value": "120+"}]
-            $blueprint->json('features')->nullable(); // [{"title": "Strategy", "description": "...", "icon": "..."}]
-            $blueprint->json('steps')->nullable(); // [{"title": "Analysis", "description": "..."}]
-            $blueprint->json('faqs')->nullable(); // [{"question": "...", "answer": "..."}]
+            $blueprint->longText('description');
+            $blueprint->longText('short_description');
+            $blueprint->longText('stats')->nullable(); // [{"label": "Project", "value": "120+"}]
+            $blueprint->longText('features')->nullable(); // [{"title": "Strategy", "description": "...", "icon": "..."}]
+            $blueprint->longText('steps')->nullable(); // [{"title": "Analysis", "description": "..."}]
+            $blueprint->longText('faqs')->nullable(); // [{"question": "...", "answer": "..."}]
             $blueprint->boolean('is_active')->default(true);
             $blueprint->integer('sort_order')->default(0);
             $blueprint->timestamps();
