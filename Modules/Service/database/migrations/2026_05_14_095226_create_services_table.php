@@ -15,7 +15,7 @@ return new class extends Migration
             $blueprint->id();
             $blueprint->foreignId('service_category_id')->constrained()->cascadeOnDelete();
             $blueprint->longText('title');
-            $blueprint->string('slug')->unique();
+            $blueprint->string('slug', 191)->unique();
             $blueprint->longText('description');
             $blueprint->longText('short_description');
             $blueprint->longText('stats')->nullable(); // [{"label": "Project", "value": "120+"}]

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('client_type')->default('customer')->after('email');
-            $table->string('phone')->nullable()->after('client_type');
+            $table->string('phone', 191)->nullable()->after('client_type');
             $table->string('city')->nullable()->after('phone');
             $table->string('company_name')->nullable()->after('name');
             $table->text('company_bio')->nullable()->after('company_name');

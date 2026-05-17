@@ -15,7 +15,7 @@ return new class extends Migration
             $blueprint->id();
             $blueprint->longText('title');
             $blueprint->longText('description');
-            $blueprint->string('slug')->unique();
+            $blueprint->string('slug', 191)->unique();
             $blueprint->boolean('is_active')->default(true);
             $blueprint->timestamps();
         });
