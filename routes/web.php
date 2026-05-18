@@ -14,7 +14,7 @@ Route::get('/run-link', function () {
 
         return 'Storage link created successfully!';
     } catch (\Exception $e) {
-        return 'Error: '.$e->getMessage();
+        return 'Error: ' . $e->getMessage();
     }
 });
 
@@ -27,7 +27,7 @@ Route::get('/run-clear', function () {
 
         return 'Cache, Config, Routes, and Views cleared successfully!';
     } catch (\Exception $e) {
-        return 'Error: '.$e->getMessage();
+        return 'Error: ' . $e->getMessage();
     }
 });
 
@@ -37,6 +37,6 @@ Route::get('/run-assets', function () {
 
         return 'Filament assets published successfully!';
     } catch (\Exception $e) {
-        return 'Error: '.$e->getMessage();
+        return 'Error: ' . $e->getMessage();
     }
 });
