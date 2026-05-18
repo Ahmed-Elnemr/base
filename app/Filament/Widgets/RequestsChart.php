@@ -4,13 +4,12 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
 use Modules\Project\app\Models\ProjectRequest;
-use Carbon\Carbon;
 
 class RequestsChart extends ChartWidget
 {
     protected static ?int $sort = 2;
 
-    protected int | string | array $columnSpan = 1;
+    protected int|string|array $columnSpan = 1;
 
     protected ?string $heading = 'Project Requests Trend';
 
@@ -21,23 +20,33 @@ class RequestsChart extends ChartWidget
 
     protected function getData(): array
     {
-        $data = ProjectRequest::selectRaw('COUNT(*) as count, DATE_FORMAT(created_at, "%Y-%m") as month')
-            ->where('created_at', '>=', now()->subMonths(6))
-            ->groupBy('month')
-            ->orderBy('month')
-            ->get();
+        $months = [];
+        $counts = [];
+
+        for ($i = 5; $i >= 0; $i--) {
+            $monthStart = now()->subMonths($i)->startOfMonth();
+            $monthEnd = now()->subMonths($i)->endOfMonth();
+
+            $count = ProjectRequest::query()
+                ->whereBetween('created_at', [$monthStart, $monthEnd])
+                ->count();
+
+            $months[] = now()->subMonths($i)->translatedFormat('F Y');
+            $counts[] = $count;
+        }
 
         return [
             'datasets' => [
                 [
                     'label' => __('New Requests'),
-                    'data' => $data->pluck('count')->toArray(),
+                    'data' => $counts,
                     'fill' => 'start',
                     'borderColor' => '#ED6F31',
                     'backgroundColor' => 'rgba(237, 111, 49, 0.1)',
+                    'tension' => 0.4,
                 ],
             ],
-            'labels' => $data->map(fn ($item) => Carbon::parse($item->month)->format('M Y'))->toArray(),
+            'labels' => $months,
         ];
     }
 
