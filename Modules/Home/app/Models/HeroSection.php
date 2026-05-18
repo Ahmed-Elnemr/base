@@ -2,8 +2,8 @@
 
 namespace Modules\Home\app\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
@@ -26,6 +26,7 @@ class HeroSection extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('hero_image')
+            ->useDisk('public')
             ->singleFile();
     }
 }
