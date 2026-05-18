@@ -5,6 +5,33 @@
 
     RewriteEngine On
 
+    # ----------------------------------------------------------------------
+    # NEXT.JS FRONTEND REWRITES (Inside public/front)
+    # ----------------------------------------------------------------------
+    
+    # 1. Serve Next.js clean HTML URLs (e.g. rewrite /about to /front/about.html if it exists)
+    RewriteCond %{REQUEST_URI} !^/admin [NC]
+    RewriteCond %{REQUEST_URI} !^/api [NC]
+    RewriteCond %{REQUEST_URI} !^/storage [NC]
+    RewriteCond %{REQUEST_URI} !^/front [NC]
+    RewriteCond %{DOCUMENT_ROOT}/front/$1.html -f
+    RewriteRule ^(.*)$ front/$1.html [L]
+
+    # 2. Rewrite root '/' to 'front/' directory
+    RewriteRule ^$ front/ [L]
+
+    # 3. General fallback: Rewrite non-existent assets and subpages to the 'front' folder
+    # (e.g. /_next/... to /front/_next/..., /about to /front/about)
+    RewriteCond %{REQUEST_URI} !^/admin [NC]
+    RewriteCond %{REQUEST_URI} !^/api [NC]
+    RewriteCond %{REQUEST_URI} !^/storage [NC]
+    RewriteCond %{REQUEST_URI} !^/front [NC]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ front/$1 [L]
+    
+    # ----------------------------------------------------------------------
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
