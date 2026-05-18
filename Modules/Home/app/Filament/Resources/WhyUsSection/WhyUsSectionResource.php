@@ -5,6 +5,7 @@ namespace Modules\Home\Filament\Resources\WhyUsSection;
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -15,7 +16,6 @@ use Modules\Home\app\Models\WhyUsSection;
 use Modules\Home\Filament\Resources\WhyUsSection\Pages\CreateWhyUsSection;
 use Modules\Home\Filament\Resources\WhyUsSection\Pages\EditWhyUsSection;
 use Modules\Home\Filament\Resources\WhyUsSection\Pages\ListWhyUsSections;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class WhyUsSectionResource extends Resource
 {
@@ -56,6 +56,7 @@ class WhyUsSectionResource extends Resource
         if ($record) {
             return static::getUrl('edit', ['record' => $record]);
         }
+
         return static::getUrl('index');
     }
 
@@ -75,8 +76,11 @@ class WhyUsSectionResource extends Resource
                         Repeater::make('points')
                             ->label(__('Points'))
                             ->schema([
-                                TextInput::make('text')->required(),
+                                TextInput::make('text')
+                                    ->label(__('Text'))
+                                    ->required(),
                             ])
+                            ->addActionLabel(__('Add Point'))
                             ->columns(1),
                     ])->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('why_us_image')

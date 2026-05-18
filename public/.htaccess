@@ -13,6 +13,7 @@
     RewriteCond %{REQUEST_URI} !^/admin [NC]
     RewriteCond %{REQUEST_URI} !^/api [NC]
     RewriteCond %{REQUEST_URI} !^/storage [NC]
+    RewriteCond %{REQUEST_URI} !^/livewire [NC]
     RewriteCond %{REQUEST_URI} !^/front [NC]
     RewriteCond %{DOCUMENT_ROOT}/front/$1.html -f
     RewriteRule ^(.*)$ front/$1.html [L]
@@ -25,6 +26,7 @@
     RewriteCond %{REQUEST_URI} !^/admin [NC]
     RewriteCond %{REQUEST_URI} !^/api [NC]
     RewriteCond %{REQUEST_URI} !^/storage [NC]
+    RewriteCond %{REQUEST_URI} !^/livewire [NC]
     RewriteCond %{REQUEST_URI} !^/front [NC]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
