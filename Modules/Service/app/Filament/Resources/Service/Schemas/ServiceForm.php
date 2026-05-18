@@ -101,11 +101,13 @@ class ServiceForm
                         SpatieMediaLibraryFileUpload::make('service_image')
                             ->label(__('Service Image'))
                             ->collection('service_image')
+                            ->disk('public')
                             ->image()
                             ->required(),
                         SpatieMediaLibraryFileUpload::make('steps_image')
                             ->label(__('Steps Section Image'))
                             ->collection('steps_image')
+                            ->disk('public')
                             ->image(),
                     ]),
 

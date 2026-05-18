@@ -86,6 +86,8 @@ class WhyUsSectionResource extends Resource
                 SpatieMediaLibraryFileUpload::make('why_us_image')
                     ->label(__('Image'))
                     ->collection('why_us_image')
+                    ->disk('public')
+                    ->image()
                     ->required(),
             ]);
     }

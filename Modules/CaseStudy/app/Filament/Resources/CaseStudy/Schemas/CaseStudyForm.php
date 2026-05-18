@@ -43,6 +43,7 @@ class CaseStudyForm
                         SpatieMediaLibraryFileUpload::make('case_study_image')
                             ->label(__('Main Image'))
                             ->collection('case_study_image')
+                            ->disk('public')
                             ->image()
                             ->required()
                             ->columnSpanFull(),

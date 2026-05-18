@@ -56,6 +56,8 @@ class PartnerResource extends Resource
                 SpatieMediaLibraryFileUpload::make('logo')
                     ->label(__('Logo'))
                     ->collection('logo')
+                    ->disk('public')
+                    ->image()
                     ->required(),
                 Toggle::make('is_active')
                     ->label(__('Is Active'))

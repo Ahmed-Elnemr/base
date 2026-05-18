@@ -47,6 +47,7 @@ class AboutPageForm
                         SpatieMediaLibraryFileUpload::make('about_image')
                             ->label(__('Primary image'))
                             ->collection('about_image')
+                            ->disk('public')
                             ->image()
                             ->required()
                             ->columnSpanFull(),
