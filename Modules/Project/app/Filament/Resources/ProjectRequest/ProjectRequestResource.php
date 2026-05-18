@@ -7,6 +7,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -14,7 +15,10 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Project\app\Models\ProjectRequest;
 
 class ProjectRequestResource extends Resource
@@ -123,6 +127,35 @@ class ProjectRequestResource extends Resource
                     ->label(__('Created At'))
                     ->dateTime()
                     ->sortable(),
+            ])
+            ->filters([
+                SelectFilter::make('status')
+                    ->label(__('Status'))
+                    ->options([
+                        'pending' => __('Pending'),
+                        'contacted' => __('Contacted'),
+                        'completed' => __('Completed'),
+                        'cancelled' => __('Cancelled'),
+                    ]),
+                SelectFilter::make('service_id')
+                    ->label(__('Service'))
+                    ->relationship('service', 'title'),
+                Filter::make('created_at')
+                    ->form([
+                        DatePicker::make('created_from')->label(__('From Date')),
+                        DatePicker::make('created_until')->label(__('To Date')),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    }),
             ])
             ->actions([
                 EditAction::make(),

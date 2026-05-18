@@ -2,9 +2,11 @@
 
 namespace App\Filament\Widgets;
 
+use Filament\Forms\Components\DatePicker;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Project\app\Models\ProjectRequest;
 use Modules\Project\Filament\Resources\ProjectRequest\ProjectRequestResource;
 
@@ -19,8 +21,9 @@ class LatestProjectRequests extends BaseWidget
         return $table
             ->heading(__('latest_project_requests_heading'))
             ->query(
-                ProjectRequest::query()->latest()->limit(5)
+                ProjectRequest::query()->latest()
             )
+            ->defaultPaginationPageOption(5)
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('Name'))
@@ -48,6 +51,35 @@ class LatestProjectRequests extends BaseWidget
                     ->label(__('Created At'))
                     ->dateTime()
                     ->sortable(),
+            ])
+            ->filters([
+                Tables\Filters\SelectFilter::make('status')
+                    ->label(__('Status'))
+                    ->options([
+                        'pending' => __('Pending'),
+                        'contacted' => __('Contacted'),
+                        'completed' => __('Completed'),
+                        'cancelled' => __('Cancelled'),
+                    ]),
+                Tables\Filters\SelectFilter::make('service_id')
+                    ->label(__('Service'))
+                    ->relationship('service', 'title'),
+                Tables\Filters\Filter::make('created_at')
+                    ->form([
+                        DatePicker::make('created_from')->label(__('From Date')),
+                        DatePicker::make('created_until')->label(__('To Date')),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    }),
             ])
             ->actions([
                 \Filament\Actions\Action::make('view')
