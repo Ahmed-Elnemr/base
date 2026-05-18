@@ -105,6 +105,13 @@ class ProjectRequestResource extends Resource
                 TextColumn::make('status')
                     ->label(__('Status'))
                     ->badge()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'pending' => __('Pending'),
+                        'contacted' => __('Contacted'),
+                        'completed' => __('Completed'),
+                        'cancelled' => __('Cancelled'),
+                        default => $state,
+                    })
                     ->color(fn (string $state): string => match ($state) {
                         'pending' => 'warning',
                         'contacted' => 'info',

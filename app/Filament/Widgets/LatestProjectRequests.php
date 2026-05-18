@@ -12,7 +12,7 @@ class LatestProjectRequests extends BaseWidget
 {
     protected static ?int $sort = 4;
 
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     public function table(Table $table): Table
     {
@@ -30,6 +30,13 @@ class LatestProjectRequests extends BaseWidget
                 Tables\Columns\TextColumn::make('status')
                     ->label(__('Status'))
                     ->badge()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'pending' => __('Pending'),
+                        'contacted' => __('Contacted'),
+                        'completed' => __('Completed'),
+                        'cancelled' => __('Cancelled'),
+                        default => $state,
+                    })
                     ->color(fn (string $state): string => match ($state) {
                         'pending' => 'warning',
                         'contacted' => 'info',
