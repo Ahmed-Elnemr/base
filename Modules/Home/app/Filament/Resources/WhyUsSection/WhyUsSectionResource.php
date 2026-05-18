@@ -72,6 +72,7 @@ class WhyUsSectionResource extends Resource
                             ->required(),
                         RichEditor::make('content')
                             ->label(__('Content'))
+                            ->deferLoading()
                             ->required(),
                         Repeater::make('points')
                             ->label(__('Points'))

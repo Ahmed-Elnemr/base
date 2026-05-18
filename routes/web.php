@@ -30,3 +30,13 @@ Route::get('/run-clear', function () {
         return 'Error: '.$e->getMessage();
     }
 });
+
+Route::get('/run-assets', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('filament:assets');
+
+        return 'Filament assets published successfully!';
+    } catch (\Exception $e) {
+        return 'Error: '.$e->getMessage();
+    }
+});
