@@ -24,10 +24,6 @@ class Service extends Model implements HasMedia
         'slug',
         'description',
         'short_description',
-        'stats',
-        'features',
-        'steps',
-        'faqs',
         'is_active',
         'sort_order',
     ];
@@ -36,10 +32,6 @@ class Service extends Model implements HasMedia
         'title'             => 'array',
         'description'       => 'array',
         'short_description' => 'array',
-        'stats'             => 'array',
-        'features'          => 'array',
-        'steps'             => 'array',
-        'faqs'              => 'array',
         'is_active'         => 'boolean',
         'sort_order'        => 'integer',
     ];
@@ -48,10 +40,6 @@ class Service extends Model implements HasMedia
         'title',
         'description',
         'short_description',
-        'stats',
-        'features',
-        'steps',
-        'faqs',
     ];
 
     public function category(): BelongsTo
@@ -72,10 +60,6 @@ class Service extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('service_image')
-            ->useDisk('public')
-            ->singleFile();
-
-        $this->addMediaCollection('steps_image')
             ->useDisk('public')
             ->singleFile();
     }

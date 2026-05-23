@@ -48,50 +48,6 @@ class ServiceForm
                                     ->required()
                                     ->columnSpanFull(),
 
-                                Repeater::make('stats')
-                                    ->label(__('Statistics'))
-                                    ->schema([
-                                        TextInput::make('label')->label(__('Label'))->required(),
-                                        TextInput::make('value')->label(__('Value'))->required(),
-                                    ])
-                                    ->columns(2)
-                                    ->grid(3)
-                                    ->columnSpanFull(),
-
-                                Repeater::make('features')
-                                    ->label(__('Features/Offerings'))
-                                    ->schema([
-                                        TextInput::make('title')->label(__('Title'))->required(),
-                                        TextInput::make('description')->label(__('Description'))->required(),
-                                        Select::make('icon')
-                                            ->label(__('Icon'))
-                                            ->options([
-                                                'rocket' => 'Rocket',
-                                                'pen' => 'Pen/Design',
-                                                'lightbulb' => 'Lightbulb/Strategy',
-                                            ])
-                                            ->required(),
-                                    ])
-                                    ->columns(3)
-                                    ->columnSpanFull(),
-
-                                Repeater::make('steps')
-                                    ->label(__('Service Steps'))
-                                    ->schema([
-                                        TextInput::make('title')->label(__('Title'))->required(),
-                                        TextInput::make('description')->label(__('Description'))->required(),
-                                    ])
-                                    ->columns(2)
-                                    ->columnSpanFull(),
-
-                                Repeater::make('faqs')
-                                    ->label(__('Service FAQs'))
-                                    ->schema([
-                                        TextInput::make('question')->label(__('Question'))->required(),
-                                        TextInput::make('answer')->label(__('Answer'))->required(),
-                                    ])
-                                    ->columns(1)
-                                    ->columnSpanFull(),
                             ]),
                     ]),
 
@@ -104,11 +60,6 @@ class ServiceForm
                             ->disk('public')
                             ->image()
                             ->required(),
-                        SpatieMediaLibraryFileUpload::make('steps_image')
-                            ->label(__('Steps Section Image'))
-                            ->collection('steps_image')
-                            ->disk('public')
-                            ->image(),
                     ]),
 
                 Section::make(__('Related Portfolio'))
