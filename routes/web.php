@@ -1,16 +1,24 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('admin');
 });
-Route::post('/support/messages', [HomeController::class, 'submitSupport'])->name('support.message.store');
 
-Route::get('/run-link', function () {
+Route::post('/support/messages', [HomeController::class, 'submitSupport'])
+    ->name('support.message.store');
+
+$secretKey = 'nemr123';
+
+Route::get('/run-link/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
     try {
-        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        Artisan::call('storage:link');
 
         return 'Storage link created successfully!';
     } catch (\Exception $e) {
@@ -18,12 +26,15 @@ Route::get('/run-link', function () {
     }
 });
 
-Route::get('/run-clear', function () {
+Route::get('/run-clear/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
     try {
-        \Illuminate\Support\Facades\Artisan::call('config:clear');
-        \Illuminate\Support\Facades\Artisan::call('cache:clear');
-        \Illuminate\Support\Facades\Artisan::call('route:clear');
-        \Illuminate\Support\Facades\Artisan::call('view:clear');
+        Artisan::call('config:clear');
+        Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+        Artisan::call('view:clear');
 
         return 'Cache, Config, Routes, and Views cleared successfully!';
     } catch (\Exception $e) {
@@ -31,9 +42,12 @@ Route::get('/run-clear', function () {
     }
 });
 
-Route::get('/run-assets', function () {
+Route::get('/run-assets/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
     try {
-        \Illuminate\Support\Facades\Artisan::call('filament:assets');
+        Artisan::call('filament:assets');
 
         return 'Filament assets published successfully!';
     } catch (\Exception $e) {
@@ -41,23 +55,32 @@ Route::get('/run-assets', function () {
     }
 });
 
-Route::get('/run-permissions', function () {
+Route::get('/run-permissions/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
     try {
+
         $storagePath = storage_path('app/public');
 
-        // Set directories to 755 and files to 644
         $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($storagePath, RecursiveDirectoryIterator::SKIP_DOTS),
+            new RecursiveDirectoryIterator(
+                $storagePath,
+                RecursiveDirectoryIterator::SKIP_DOTS
+            ),
             RecursiveIteratorIterator::SELF_FIRST
         );
 
         $fixed = 0;
+
         foreach ($iterator as $item) {
+
             if ($item->isDir()) {
                 chmod($item->getPathname(), 0755);
             } else {
                 chmod($item->getPathname(), 0644);
             }
+
             $fixed++;
         }
 
@@ -65,6 +88,24 @@ Route::get('/run-permissions', function () {
 
         return "Permissions fixed! ({$fixed} items updated)";
     } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
+
+Route::get('/run-migrate/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
+    try {
+
+        Artisan::call('migrate', [
+            '--force' => true
+        ]);
+
+        return nl2br(Artisan::output());
+
+    } catch (\Exception $e) {
+
         return 'Error: ' . $e->getMessage();
     }
 });
