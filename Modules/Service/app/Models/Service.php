@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Modules\Portfolio\app\Models\Work;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
@@ -26,14 +24,16 @@ class Service extends Model implements HasMedia
         'short_description',
         'is_active',
         'sort_order',
+        'related_works',
     ];
 
     protected $casts = [
-        'title'             => 'array',
-        'description'       => 'array',
+        'title' => 'array',
+        'description' => 'array',
         'short_description' => 'array',
-        'is_active'         => 'boolean',
-        'sort_order'        => 'integer',
+        'is_active' => 'boolean',
+        'sort_order' => 'integer',
+        'related_works' => 'array',
     ];
 
     protected array $translatable = [
@@ -47,9 +47,12 @@ class Service extends Model implements HasMedia
         return $this->belongsTo(ServiceCategory::class, 'service_category_id');
     }
 
-    public function relatedWorks(): BelongsToMany
+    public function similarServices()
     {
-        return $this->belongsToMany(Work::class, 'service_work');
+        return $this->hasMany(Service::class, 'service_category_id', 'service_category_id')
+            ->where('id', '!=', $this->id)
+            ->active()
+            ->orderBy('sort_order');
     }
 
     public function scopeActive(Builder $query): Builder

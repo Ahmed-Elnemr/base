@@ -48,7 +48,7 @@ class ServiceController extends Controller
         $service = Service::query()
             ->where('slug', $slug)
             ->active()
-            ->with(['category', 'relatedWorks'])
+            ->with(['category', 'similarServices'])
             ->first();
 
         if (! $service) {

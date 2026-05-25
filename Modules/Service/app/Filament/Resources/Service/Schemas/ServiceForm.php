@@ -3,6 +3,7 @@
 namespace Modules\Service\Filament\Resources\Service\Schemas;
 
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -64,11 +65,21 @@ class ServiceForm
 
                 Section::make(__('Related Portfolio'))
                     ->schema([
-                        Select::make('relatedWorks')
+                        Repeater::make('related_works')
                             ->label(__('Related Works'))
-                            ->relationship('relatedWorks', 'title')
-                            ->multiple()
-                            ->preload(),
+                            ->schema([
+                                FileUpload::make('image')
+                                    ->label(__('Image'))
+                                    ->image()
+                                    ->directory('service_related_works')
+                                    ->required(),
+                                TextInput::make('title_ar')
+                                    ->label(__('Title (Arabic)')),
+                                TextInput::make('title_en')
+                                    ->label(__('Title (English)')),
+                            ])
+                            ->columns(1)
+                            ->defaultItems(0),
                     ]),
 
                 Section::make(__('Settings'))

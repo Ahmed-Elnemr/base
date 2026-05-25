@@ -3,7 +3,6 @@
 namespace Modules\Service\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Portfolio\Http\Resources\WorkResource;
 
 class ServiceResource extends JsonResource
 {
@@ -19,8 +18,24 @@ class ServiceResource extends JsonResource
             'description' => $this->getTranslation('description', $locale),
             'image' => $this->getFirstMediaUrl('service_image') ? url($this->getFirstMediaUrl('service_image')) : null,
             'category' => new ServiceCategoryResource($this->whenLoaded('category')),
-            'related_works' => WorkResource::collection($this->whenLoaded('relatedWorks')),
+            'similar_services' => self::collection($this->whenLoaded('similarServices')),
+            'related_works' => $this->formatRelatedWorks(),
             'created_at' => $this->created_at,
         ];
+    }
+
+    private function formatRelatedWorks(): array
+    {
+        $works = $this->related_works ?? [];
+        $locale = app()->getLocale();
+
+        return collect($works)->map(function ($work) use ($locale) {
+            $titleKey = 'title_'.$locale;
+
+            return [
+                'image' => isset($work['image']) ? url('storage/'.$work['image']) : null,
+                'title' => $work[$titleKey] ?? $work['title_en'] ?? $work['title_ar'] ?? null,
+            ];
+        })->toArray();
     }
 }
