@@ -72,7 +72,13 @@ class ServiceForm
                                     ->label(__('Image'))
                                     ->image()
                                     ->directory('service_related_works')
+                                    ->disk('public')
+                                    ->visibility('public')
                                     ->required(),
+                                TextInput::make('link')
+                                    ->label(__('Link'))
+                                    ->url()
+                                    ->nullable(),
                                 TextInput::make('title_ar')
                                     ->label(__('Title (Arabic)')),
                                 TextInput::make('title_en')

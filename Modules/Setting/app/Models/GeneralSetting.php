@@ -18,13 +18,19 @@ class GeneralSetting extends Model implements HasMedia
         'phone',
         'website',
         'social_links',
+        'occasion_title',
+        'occasion_content',
+        'occasion_is_active',
     ];
 
-    public $translatable = ['address'];
+    public $translatable = ['address', 'occasion_title', 'occasion_content'];
 
     protected $casts = [
         'address' => 'array',
         'social_links' => 'array',
+        'occasion_title' => 'array',
+        'occasion_content' => 'array',
+        'occasion_is_active' => 'boolean',
     ];
 
     public function registerMediaCollections(): void
@@ -32,5 +38,6 @@ class GeneralSetting extends Model implements HasMedia
         $this->addMediaCollection('logo_header')->singleFile()->useDisk('public');
         $this->addMediaCollection('logo_footer')->singleFile()->useDisk('public');
         $this->addMediaCollection('logo_admin')->singleFile()->useDisk('public');
+        $this->addMediaCollection('occasion_image')->singleFile()->useDisk('public');
     }
 }

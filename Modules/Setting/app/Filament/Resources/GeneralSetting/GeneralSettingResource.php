@@ -5,6 +5,9 @@ namespace Modules\Setting\Filament\Resources\GeneralSetting;
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -87,6 +90,28 @@ class GeneralSettingResource extends Resource
                     ->disk('public')
                     ->image()
                     ->required(),
+
+                Section::make(__('Occasion'))
+                    ->schema([
+                        Toggle::make('occasion_is_active')
+                            ->label(__('Active'))
+                            ->default(false),
+                        TranslatableTabs::make('occasion_tabs')
+                            ->locales(['ar', 'en'])
+                            ->columnSpanFull()
+                            ->schema([
+                                TextInput::make('occasion_title')
+                                    ->label(__('Occasion Title')),
+                                Textarea::make('occasion_content')
+                                    ->label(__('Occasion Content'))
+                                    ->rows(3),
+                            ]),
+                        SpatieMediaLibraryFileUpload::make('occasion_image')
+                            ->label(__('Occasion Image'))
+                            ->collection('occasion_image')
+                            ->disk('public')
+                            ->image(),
+                    ]),
             ]);
     }
 
