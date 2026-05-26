@@ -34,6 +34,11 @@ class SettingController extends Controller
                     'header' => $settings->getFirstMediaUrl('logo_header') ? url($settings->getFirstMediaUrl('logo_header')) : null,
                     'footer' => $settings->getFirstMediaUrl('logo_footer') ? url($settings->getFirstMediaUrl('logo_footer')) : null,
                 ] : null,
+                'occasions' => ($settings && $settings->occasion_is_active) ? [
+                    'title' => $settings->getTranslation('occasion_title', $locale),
+                    'content' => $settings->getTranslation('occasion_content', $locale),
+                    'image' => $settings->getFirstMediaUrl('occasion_image') ? url($settings->getFirstMediaUrl('occasion_image')) : null,
+                ] : null,
                 'categories' => $categories->map(fn($cat) => [
                     'id' => $cat->id,
                     'name' => $cat->getTranslation('name', $locale),

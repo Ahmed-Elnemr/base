@@ -35,6 +35,7 @@ class ServiceResource extends JsonResource
             return [
                 'image' => isset($work['image']) ? url('storage/'.$work['image']) : null,
                 'title' => $work[$titleKey] ?? $work['title_en'] ?? $work['title_ar'] ?? null,
+                'link' => $work['link'] ?? null,
             ];
         })->toArray();
     }

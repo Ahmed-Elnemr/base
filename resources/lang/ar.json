@@ -423,5 +423,9 @@
     "Text": "النص",
     "Add Point": "إضافة نقطة",
     "From Date": "من تاريخ",
-    "To Date": "إلى تاريخ"
+    "To Date": "إلى تاريخ",
+    "Occasion": "المناسبة",
+    "Occasion Title": "عنوان المناسبة",
+    "Occasion Content": "محتوى المناسبة",
+    "Occasion Image": "صورة المناسبة"
 }
