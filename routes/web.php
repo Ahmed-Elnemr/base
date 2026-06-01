@@ -118,7 +118,7 @@ Route::get('/run-dump-autoload/{key}', function ($key) use ($secretKey) {
 
         Artisan::call('optimize:clear');
 
-        $output = shell_exec('composer dump-autoload -o 2>&1');
+        $output = shell_exec('composer dump-autoload ');
 
         return nl2br($output ?: 'Composer dump-autoload executed successfully.');
 
