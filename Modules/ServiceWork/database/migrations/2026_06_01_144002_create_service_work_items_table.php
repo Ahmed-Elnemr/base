@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('service_work_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('service_work_category_id')->constrained('service_work_categories')->cascadeOnDelete();
-            $table->json('title');
-            $table->json('subtitle')->nullable();
-            $table->json('content')->nullable();
+            $table->longText('title');
+            $table->longText('subtitle')->nullable();
+            $table->longText('content')->nullable();
             $table->boolean('is_active')->default(true);
             $table->integer('sort_order')->default(0);
             $table->timestamps();

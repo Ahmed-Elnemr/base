@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('service_work_categories', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
+            $table->longText('name');
             $table->string('slug')->unique();
             $table->boolean('is_active')->default(true);
             $table->integer('sort_order')->default(0);
