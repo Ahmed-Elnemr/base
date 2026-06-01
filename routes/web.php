@@ -109,3 +109,21 @@ Route::get('/run-migrate/{key}', function ($key) use ($secretKey) {
         return 'Error: ' . $e->getMessage();
     }
 });
+
+Route::get('/run-dump-autoload/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
+    try {
+
+        Artisan::call('optimize:clear');
+
+        $output = shell_exec('composer dump-autoload -o 2>&1');
+
+        return nl2br($output ?: 'Composer dump-autoload executed successfully.');
+
+    } catch (\Exception $e) {
+
+        return 'Error: ' . $e->getMessage();
+    }
+});
