@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ServiceWork\Filament;
+namespace Modules\ServiceWork\app\Filament;
 
 use Coolsam\Modules\Concerns\ModuleFilamentPlugin;
 use Filament\Contracts\Plugin;
