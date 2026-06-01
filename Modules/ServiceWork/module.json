@@ -1,0 +1,11 @@
+{
+    "name": "ServiceWork",
+    "alias": "servicework",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ServiceWork\\Providers\\ServiceWorkServiceProvider"
+    ],
+    "files": []
+}
