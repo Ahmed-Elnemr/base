@@ -3,12 +3,14 @@
 namespace Modules\Setting\Filament\Resources\GeneralSetting;
 
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Schemas\Components\Section;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Modules\Setting\app\Models\GeneralSetting;
@@ -49,6 +51,7 @@ class GeneralSettingResource extends Resource
         if ($record) {
             return static::getUrl('edit', ['record' => $record]);
         }
+
         return static::getUrl('index');
     }
 
@@ -72,6 +75,44 @@ class GeneralSettingResource extends Resource
                 TextInput::make('phone')
                     ->label(__('Phone'))
                     ->required(),
+                TextInput::make('website')
+                    ->label(__('Website'))
+                    ->url()
+                    ->nullable(),
+                Section::make(__('Social Links'))
+                    ->schema([
+                        Repeater::make('social_links')
+                            ->label('')
+                            ->schema([
+                                Select::make('platform')
+                                    ->label(__('Platform'))
+                                    ->options([
+                                        'facebook' => 'Facebook',
+                                        'instagram' => 'Instagram',
+                                        'twitter' => 'Twitter (X)',
+                                        'linkedin' => 'LinkedIn',
+                                        'youtube' => 'YouTube',
+                                        'tiktok' => 'TikTok',
+                                        'snapchat' => 'Snapchat',
+                                        'whatsapp' => 'WhatsApp',
+                                        'telegram' => 'Telegram',
+                                        'pinterest' => 'Pinterest',
+                                    ])
+                                    ->required()
+                                    ->searchable()
+                                    ->columnSpan(1),
+                                TextInput::make('url')
+                                    ->label(__('URL'))
+                                    ->url()
+                                    ->required()
+                                    ->columnSpan(1),
+                            ])
+                            ->columns(2)
+                            ->addActionLabel(__('Add Social Link'))
+                            ->collapsible()
+                            ->reorderable()
+                            ->defaultItems(0),
+                    ]),
                 SpatieMediaLibraryFileUpload::make('logo_header')
                     ->label(__('Header Logo'))
                     ->collection('logo_header')

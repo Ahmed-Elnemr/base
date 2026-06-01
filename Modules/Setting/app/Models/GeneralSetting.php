@@ -2,8 +2,10 @@
 
 namespace Modules\Setting\app\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Database\Factories\GeneralSettingFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
@@ -32,6 +34,11 @@ class GeneralSetting extends Model implements HasMedia
         'occasion_content' => 'array',
         'occasion_is_active' => 'boolean',
     ];
+
+    protected static function newFactory(): Factory
+    {
+        return GeneralSettingFactory::new();
+    }
 
     public function registerMediaCollections(): void
     {
