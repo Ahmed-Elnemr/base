@@ -6,5 +6,5 @@
     "Service": true,
     "Project": true,
     "Home": true,
-    "ServiceWork": true
+    "ServiceWork": false
 }
