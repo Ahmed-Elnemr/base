@@ -3,12 +3,14 @@
 namespace Modules\ServiceWork\Filament\Resources;
 
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Set;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
@@ -49,6 +51,12 @@ class ServiceWorkCategoryResource extends Resource
         return $schema
             ->columns(1)
             ->schema([
+                SpatieMediaLibraryFileUpload::make('category_image')
+                    ->label(__('Image'))
+                    ->collection('category_image')
+                    ->image()
+                    ->imagePreviewHeight('200')
+                    ->columnSpanFull(),
                 TranslatableTabs::make()
                     ->locales(['ar', 'en'])
                     ->columnSpanFull()
@@ -57,13 +65,12 @@ class ServiceWorkCategoryResource extends Resource
                             ->label(__('Name'))
                             ->required()
                             ->live(onBlur: true)
-                            ->afterStateUpdated(function (string $operation, $state, Set $set, $livewire) {
+                            ->afterStateUpdated(function (string $operation, $state, Set $set) {
                                 if ($operation !== 'create') {
                                     return;
                                 }
-                                if ($livewire->activeLocale === 'en') {
-                                    $set('slug', Str::slug($state));
-                                }
+
+                                $set('slug', Str::slug($state));
                             }),
                     ]),
                 TextInput::make('slug')
@@ -84,6 +91,9 @@ class ServiceWorkCategoryResource extends Resource
     {
         return $table
             ->columns([
+                SpatieMediaLibraryImageColumn::make('category_image')
+                    ->label(__('Image'))
+                    ->collection('category_image'),
                 TextColumn::make('name')
                     ->label(__('Name'))
                     ->searchable()

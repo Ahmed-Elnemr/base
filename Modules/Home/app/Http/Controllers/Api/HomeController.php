@@ -111,6 +111,7 @@ class HomeController extends Controller
                     'id' => $cat->id,
                     'name' => $cat->getTranslation('name', $locale),
                     'slug' => $cat->slug,
+                    'image' => $cat->getFirstMediaUrl('category_image') ? url($cat->getFirstMediaUrl('category_image')) : null,
                 ]),
             ]
         );

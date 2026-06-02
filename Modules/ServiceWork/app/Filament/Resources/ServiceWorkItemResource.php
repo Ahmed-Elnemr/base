@@ -74,7 +74,8 @@ class ServiceWorkItemResource extends Resource
                         TextInput::make('subtitle')
                             ->label(__('Subtitle')),
                         RichEditor::make('content')
-                            ->label(__('Content')),
+                            ->label(__('Content'))
+                            ->columnSpanFull(),
                     ]),
                 TextInput::make('sort_order')
                     ->label(__('Sort Order'))
