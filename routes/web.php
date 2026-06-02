@@ -13,6 +13,10 @@ Route::post('/support/messages', [HomeController::class, 'submitSupport'])
 
 $secretKey = 'nemr123';
 
+Route::get('/test', function () {
+    return 'test';
+});
+
 Route::get('/run-link/{key}', function ($key) use ($secretKey) {
 
     abort_if($key !== $secretKey, 403);
