@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             \Modules\Setting\database\seeders\SettingSeeder::class,
             \Modules\CaseStudy\database\seeders\CaseStudySeeder::class,
             \Modules\Project\database\seeders\ProjectSeeder::class,
+            \Modules\ServiceWork\Database\Seeders\ServiceWorkDatabaseSeeder::class,
         ]);
     }
 }

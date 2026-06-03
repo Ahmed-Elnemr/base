@@ -1,0 +1,542 @@
+[
+    {
+        "name_ar": "طعام",
+        "name_en": "Food",
+        "slug": "food",
+        "items": [
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1903_63.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1904_WhatsApp-Image-2024-12-21-at-1.57.54-PM-_2_.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1901_61.jpeg"
+            },
+            {
+                "title_ar": "شركة العقاد للصناعة و التجارة",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1790_54.jpeg"
+            },
+            {
+                "title_ar": "شركة العقاد للصناعة و التجارة",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1789_53.jpeg"
+            },
+            {
+                "title_ar": "شركة العقاد للصناعة و التجارة",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1788_52.jpeg"
+            },
+            {
+                "title_ar": "شركة الهبج",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1703_51.jpg"
+            },
+            {
+                "title_ar": "شركة ستيم",
+                "subtitle_ar": "تصميم  بوستر",
+                "content_ar": "",
+                "image": "images\/food\/1702_50.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "توابل ومكسرات",
+        "name_en": "Spices & Nuts",
+        "slug": "spices-nuts",
+        "items": [
+            {
+                "title_ar": "شركة فنري",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1724_6.jpg"
+            },
+            {
+                "title_ar": "شركة فنري",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1723_5.jpg"
+            },
+            {
+                "title_ar": "شركة فنري",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1722_4.jpg"
+            },
+            {
+                "title_ar": "ماركة نقارش",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1721_3.jpg"
+            },
+            {
+                "title_ar": "ماركة نقارش",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1720_2.jpg"
+            },
+            {
+                "title_ar": "ماركة نقارش",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1719_1.jpg"
+            },
+            {
+                "title_ar": "فلفل أبيض",
+                "subtitle_ar": "توابل2",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1323_1.png"
+            },
+            {
+                "title_ar": "فلفل حلو",
+                "subtitle_ar": "توابل3",
+                "content_ar": "",
+                "image": "images\/spices-nuts\/1324_3png.png"
+            }
+        ]
+    },
+    {
+        "name_ar": "لوحات إعلانية",
+        "name_en": "Billboards",
+        "slug": "billboards",
+        "items": [
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1787_39.jpg"
+            },
+            {
+                "title_ar": "شركة بولاد",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1786_38.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1784_37.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1783_36.jpg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1782_35.jpg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1781_34.jpg"
+            },
+            {
+                "title_ar": "شركة الفوارس للصناعة  و التجارة",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1780_33.jpeg"
+            },
+            {
+                "title_ar": "شركة الفوارس للصناعة  و التجارة",
+                "subtitle_ar": "تصميم لوحة اعلانية",
+                "content_ar": "",
+                "image": "images\/billboards\/1779_32.jpeg"
+            }
+        ]
+    },
+    {
+        "name_ar": "مواد كيميائية ومنظفات",
+        "name_en": "Chemicals & Detergents",
+        "slug": "chemicals-detergents",
+        "items": [
+            {
+                "title_ar": "بوليتو - قطر",
+                "subtitle_ar": "تصميم امبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1739_15.jpg"
+            },
+            {
+                "title_ar": "بوليتو - قطر",
+                "subtitle_ar": "تصميم امبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1738_14.jpg"
+            },
+            {
+                "title_ar": "بوليتو - قطر",
+                "subtitle_ar": "تصميم امبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1737_13.jpg"
+            },
+            {
+                "title_ar": "شركة زهر الصنوبر سلطنة-عمان",
+                "subtitle_ar": "تصيمم أمبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1736_12.jpg"
+            },
+            {
+                "title_ar": "شركة زهر الصنوبر سلطنة-عمان",
+                "subtitle_ar": "تصيمم أمبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1735_11.jpg"
+            },
+            {
+                "title_ar": "شركة زهر الصنوبر سلطنة-عمان",
+                "subtitle_ar": "تصيمم أمبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1734_10.jpg"
+            },
+            {
+                "title_ar": "شركة زهر الصنوبر سلطنة-عمان",
+                "subtitle_ar": "تصيمم أمبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1733_9.jpg"
+            },
+            {
+                "title_ar": "شركة زهر الصنوبر سلطنة-عمان",
+                "subtitle_ar": "تصيمم أمبلاج و بوستر",
+                "content_ar": "",
+                "image": "images\/chemicals-detergents\/1732_8.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "مواد صناعية وكهربائية",
+        "name_en": "Industrial & Electrical",
+        "slug": "industrial-electrical",
+        "items": [
+            {
+                "title_ar": "أضواء ليد",
+                "subtitle_ar": "الكترونيات1",
+                "content_ar": "",
+                "image": "images\/industrial-electrical\/1408_photo_2024-10-07_01-47-36.jpg"
+            },
+            {
+                "title_ar": "شاشةHD",
+                "subtitle_ar": "الكترونيات2",
+                "content_ar": "",
+                "image": "images\/industrial-electrical\/1409_photo_2024-10-07_01-31-03.jpg"
+            },
+            {
+                "title_ar": "لمبة LED",
+                "subtitle_ar": "الكترونيات3",
+                "content_ar": "",
+                "image": "images\/industrial-electrical\/1410_photo_2024-10-07_01-31-11.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "أدوية ومستحضرات تجميل",
+        "name_en": "Pharmaceuticals & Cosmetics",
+        "slug": "pharmaceuticals-cosmetics",
+        "items": [
+            {
+                "title_ar": "هايجنك كير فيجن",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": ""
+            },
+            {
+                "title_ar": "هايجنك كير فيجن",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": ""
+            },
+            {
+                "title_ar": "بروتين",
+                "subtitle_ar": "الأدوية1",
+                "content_ar": "",
+                "image": "images\/pharmaceuticals-cosmetics\/1405_photo_2024-10-07_01-47-36.jpg"
+            },
+            {
+                "title_ar": "مكملات غذائية",
+                "subtitle_ar": "الأدوية2",
+                "content_ar": "",
+                "image": "images\/pharmaceuticals-cosmetics\/1406_photo_2024-10-07_01-31-03.jpg"
+            },
+            {
+                "title_ar": "مسكن",
+                "subtitle_ar": "الأدوية3",
+                "content_ar": "",
+                "image": "images\/pharmaceuticals-cosmetics\/1407_photo_2024-10-07_01-31-11.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "الاطعمة المجمدة",
+        "name_en": "Frozen Foods",
+        "slug": "frozen-foods",
+        "items": [
+            {
+                "title_ar": "آيسكريم",
+                "subtitle_ar": "أطعمة مجمدة1",
+                "content_ar": "",
+                "image": "images\/frozen-foods\/1399_photo_2024-10-07_01-47-36.jpg"
+            },
+            {
+                "title_ar": "بطاطس مقلية مجمدة",
+                "subtitle_ar": "أطعمة مجمدة2",
+                "content_ar": "",
+                "image": "images\/frozen-foods\/1400_photo_2024-10-07_01-31-03.jpg"
+            },
+            {
+                "title_ar": "زبدة",
+                "subtitle_ar": "أطعمة مجمدة3",
+                "content_ar": "",
+                "image": "images\/frozen-foods\/1404_photo_2024-10-07_01-31-11.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "منتجات الالبان",
+        "name_en": "Dairy Products",
+        "slug": "dairy-products",
+        "items": [
+            {
+                "title_ar": "شركة الحسن الظاهر",
+                "subtitle_ar": "الحسن الظاهر",
+                "content_ar": "",
+                "image": "images\/dairy-products\/1986_WhatsApp-Image-2025-09-06-at-2.55.21-PM.jpeg"
+            }
+        ]
+    },
+    {
+        "name_ar": "ستاندات و أجنحة المعارض",
+        "name_en": "Exhibition Stands",
+        "slug": "exhibition-stands",
+        "items": [
+            {
+                "title_ar": "الشركة العالمية للصناعات الدوائية",
+                "subtitle_ar": "تصميم أجنحة معارض",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1923_15.jpg"
+            },
+            {
+                "title_ar": "الشركة العالمية للصناعات الدوائية",
+                "subtitle_ar": "تصميم ستاند",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1922_14.jpg"
+            },
+            {
+                "title_ar": "الشركة العالمية للصناعات الدوائية",
+                "subtitle_ar": "تصميم أجنحة معارض",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1921_13.jpg"
+            },
+            {
+                "title_ar": "الشركة العالمية للصناعات الدوائية",
+                "subtitle_ar": "تصميم ستاند",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1916_12.jpeg"
+            },
+            {
+                "title_ar": "الشركة العالمية للصناعات الدوائية",
+                "subtitle_ar": "تصميم ستاند",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1920_11.jpg"
+            },
+            {
+                "title_ar": "الشركة العالمية للصناعات الدوائية",
+                "subtitle_ar": "تصميم ستاند",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1914_10.jpeg"
+            },
+            {
+                "title_ar": "شركة فادي سويد للصناعة و التجارة",
+                "subtitle_ar": "تصميم أجنحة معارض",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1913_9.jpg"
+            },
+            {
+                "title_ar": "شركة فادي سويد للصناعة و التجارة",
+                "subtitle_ar": "تصميم أجنحة معارض",
+                "content_ar": "",
+                "image": "images\/exhibition-stands\/1912_8.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "شوكولا و بسكويت",
+        "name_en": "Chocolate & Biscuits",
+        "slug": "chocolate-biscuits",
+        "items": [
+            {
+                "title_ar": "مؤسسة مكي للصناعات الغذائية",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1899_19.jpeg"
+            },
+            {
+                "title_ar": "مؤسسة مكي للصناعات الغذائية",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1898_18.jpeg"
+            },
+            {
+                "title_ar": "مؤسسة مكي للصناعات الغذائية",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1897_17.jpeg"
+            },
+            {
+                "title_ar": "مؤسسة مكي للصناعات الغذائية",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1896_16.jpeg"
+            },
+            {
+                "title_ar": "مؤسسة مكي للصناعات الغذائية",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1895_14.jpeg"
+            },
+            {
+                "title_ar": "مؤسسة مكي للصناعات الغذائية",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1894_15.jpg"
+            },
+            {
+                "title_ar": "شركة نوستيمو",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1893_33.jpg"
+            },
+            {
+                "title_ar": "شركة نوستيمو",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chocolate-biscuits\/1892_32.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "سلع استهلاكية",
+        "name_en": "Consumer Goods",
+        "slug": "consumer-goods",
+        "items": [
+            {
+                "title_ar": "ماركة روشيلا",
+                "subtitle_ar": "تصميم غلاف",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1854_60.jpg"
+            },
+            {
+                "title_ar": "شركة لورانج",
+                "subtitle_ar": "تصميم غلاف",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1852_59.jpg"
+            },
+            {
+                "title_ar": "شركة فادي سويد للصناعة و التجارة",
+                "subtitle_ar": "تصميم غلاف",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1849_58.jpg"
+            },
+            {
+                "title_ar": "مؤسسة حسين الناصر التجارية",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1847_55.jpg"
+            },
+            {
+                "title_ar": "ماركة روشيلا",
+                "subtitle_ar": "تصميم غلاف",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1855_57.jpg"
+            },
+            {
+                "title_ar": "ماركة روشيلا",
+                "subtitle_ar": "تصميم غلاف",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1845_56.jpg"
+            },
+            {
+                "title_ar": "شركة الفوارس للصناعة  و التجارة",
+                "subtitle_ar": "تصميم بوستر وغلاف",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1697_47.jpg"
+            },
+            {
+                "title_ar": "شركة الفوارس للصناعة  و التجارة",
+                "subtitle_ar": "تصميم بوستر وغلاف",
+                "content_ar": "",
+                "image": "images\/consumer-goods\/1699_46.jpg"
+            }
+        ]
+    },
+    {
+        "name_ar": "شيبس",
+        "name_en": "Chips",
+        "slug": "chips",
+        "items": [
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1861_54.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1860_53.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1859_52.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1858_51.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1857_50.jpeg"
+            },
+            {
+                "title_ar": "شركة شموط فود",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1856_49.jpeg"
+            },
+            {
+                "title_ar": "شركة بولاد",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1835_42.jpg"
+            },
+            {
+                "title_ar": "شركة بولاد",
+                "subtitle_ar": "تصميم غلاف و بوستر",
+                "content_ar": "",
+                "image": "images\/chips\/1838_41.jpeg"
+            }
+        ]
+    }
+]
