@@ -12,15 +12,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->append(App\Http\Middleware\RedirectToCanonicalUrl::class);
+
         $middleware->api(append: [
             App\Http\Middleware\AppLanguage::class,
             'throttle:60,1',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-//        $exceptions->render(function (Throwable $exception, Request $request) {
-//            $handler = new \App\Exceptions\HandlerError();
-//
-//            return $handler->handle($exception, $request);
-//        });
+        //        $exceptions->render(function (Throwable $exception, Request $request) {
+        //            $handler = new \App\Exceptions\HandlerError();
+        //
+        //            return $handler->handle($exception, $request);
+        //        });
     })->create();

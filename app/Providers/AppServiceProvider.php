@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
+        if (! app()->runningInConsole()) {
+            config(['filesystems.disks.public.url' => request()->getSchemeAndHttpHost().'/storage']);
+        }
+
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch
                 ->locales(['ar', 'en']);
