@@ -109,7 +109,17 @@ class ServiceWorkItemResource extends Resource
                     ->label(__('Active')),
             ])
             ->filters([
-                //
+                \Filament\Tables\Filters\SelectFilter::make('category')
+                    ->label(__('Category'))
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->multiple(),
+                \Filament\Tables\Filters\TernaryFilter::make('is_active')
+                    ->label(__('Status'))
+                    ->placeholder(__('All'))
+                    ->trueLabel(__('Active'))
+                    ->falseLabel(__('Inactive')),
             ])
             ->actions([
                 \Filament\Actions\EditAction::make(),

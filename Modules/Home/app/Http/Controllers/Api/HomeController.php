@@ -48,6 +48,7 @@ class HomeController extends Controller
                         'url' => $hero->button_url_2,
                     ],
                     'image' => $hero->getFirstMediaUrl('hero_image') ? url($hero->getFirstMediaUrl('hero_image')) : null,
+                    'images' => $hero->getMedia('hero_image')->map(fn ($media) => url($media->getUrl()))->toArray(),
                 ] : null,
                 'stats' => $stats->map(fn ($stat) => [
                     'title' => $stat->getTranslation('title', $locale),

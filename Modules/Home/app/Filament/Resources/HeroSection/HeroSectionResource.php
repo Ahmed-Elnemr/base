@@ -3,7 +3,7 @@
 namespace Modules\Home\Filament\Resources\HeroSection;
 
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -14,7 +14,6 @@ use Modules\Home\app\Models\HeroSection;
 use Modules\Home\Filament\Resources\HeroSection\Pages\CreateHeroSection;
 use Modules\Home\Filament\Resources\HeroSection\Pages\EditHeroSection;
 use Modules\Home\Filament\Resources\HeroSection\Pages\ListHeroSections;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class HeroSectionResource extends Resource
 {
@@ -55,6 +54,7 @@ class HeroSectionResource extends Resource
         if ($record) {
             return static::getUrl('edit', ['record' => $record]);
         }
+
         return static::getUrl('index');
     }
 
@@ -81,6 +81,8 @@ class HeroSectionResource extends Resource
                 SpatieMediaLibraryFileUpload::make('hero_image')
                     ->label(__('Hero Image'))
                     ->collection('hero_image')
+                    ->multiple()
+                    ->reorderable()
                     ->required(),
                 TextInput::make('button_url_1')
                     ->label(__('Button URL 1'))
@@ -97,7 +99,9 @@ class HeroSectionResource extends Resource
             ->columns([
                 SpatieMediaLibraryImageColumn::make('hero_image')
                     ->label(__('Image'))
-                    ->collection('hero_image'),
+                    ->collection('hero_image')
+                    ->circular()
+                    ->stacked(),
                 TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable(),
