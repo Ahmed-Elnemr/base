@@ -24,8 +24,22 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        if (! app()->runningInConsole()) {
+        if (! app()->runningInConsole() || app()->environment('testing')) {
             config(['filesystems.disks.public.url' => request()->getSchemeAndHttpHost().'/storage']);
+
+            // Redirect www to non-www
+            $host = request()->getHost();
+            if (str_starts_with($host, 'www.')) {
+                $newHost = substr($host, 4);
+                $newUrl = request()->getScheme().'://'.$newHost.request()->getRequestUri();
+
+                if (app()->environment('testing')) {
+                    abort(301, '', ['Location' => $newUrl]);
+                }
+
+                header("Location: $newUrl", true, 301);
+                exit;
+            }
         }
 
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
