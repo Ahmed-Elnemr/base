@@ -131,3 +131,21 @@ Route::get('/run-dump-autoload/{key}', function ($key) use ($secretKey) {
         return 'Error: ' . $e->getMessage();
     }
 });
+Route::get('/run-seeder-work/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
+    try {
+
+        Artisan::call('db:seed', [
+            '--class' => 'Database\\Seeders\\ServiceWorkDatabaseSeeder',
+            '--force' => true,
+        ]);
+
+        return nl2br(Artisan::output());
+
+    } catch (\Exception $e) {
+
+        return 'Error: ' . $e->getMessage();
+    }
+});
