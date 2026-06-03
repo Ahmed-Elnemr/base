@@ -138,7 +138,7 @@ Route::get('/run-seeder-work/{key}', function ($key) use ($secretKey) {
     try {
 
         Artisan::call('db:seed', [
-            '--class' => 'Database\\Seeders\\ServiceWorkDatabaseSeeder',
+            '--class' => 'Modules\\ServiceWork\\Database\\Seeders\\ServiceWorkDatabaseSeeder',
             '--force' => true,
         ]);
 
