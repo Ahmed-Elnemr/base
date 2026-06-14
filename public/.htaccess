@@ -20,6 +20,7 @@
     RewriteCond %{REQUEST_URI} ^/tasks/public/
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !^/tasks/public/index\.php$
     RewriteRule ^ tasks/public/index.php [L]
 
     # ----------------------------------------------------------------------
