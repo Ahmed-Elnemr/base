@@ -4,13 +4,23 @@
     </IfModule>
 
     RewriteEngine On
-     # ----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     # TASKS PROJECT (Laravel 2)
     # ----------------------------------------------------------------------
 
-    # تحويل /tasks إلى مشروع Laravel الثاني
-    RewriteRule ^tasks/?$ public/tasks/public/index.php [L]
-    RewriteRule ^tasks/(.*)$ public/tasks/public/$1 [L]
+    # تحويل /tasks بدون سلاش إلى /tasks/
+    RewriteRule ^tasks$ tasks/ [R=301,L]
+
+    # تحويل طلبات tasks إلى مجلد public الخاص بالمشروع الثاني (إذا لم تكن محولة بالفعل)
+    RewriteCond %{REQUEST_URI} ^/tasks/
+    RewriteCond %{REQUEST_URI} !^/tasks/public/
+    RewriteRule ^tasks/(.*)$ tasks/public/$1 [L]
+
+    # إذا كان الطلب إلى tasks/public ولم يكن ملفاً حقيقياً، وجهه إلى index.php للمشروع الثاني
+    RewriteCond %{REQUEST_URI} ^/tasks/public/
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ tasks/public/index.php [L]
 
     # ----------------------------------------------------------------------
     # NEXT.JS FRONTEND REWRITES (Inside public/front)
