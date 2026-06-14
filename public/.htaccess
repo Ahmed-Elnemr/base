@@ -4,6 +4,13 @@
     </IfModule>
 
     RewriteEngine On
+     # ----------------------------------------------------------------------
+    # TASKS PROJECT (Laravel 2)
+    # ----------------------------------------------------------------------
+
+    # تحويل /tasks إلى مشروع Laravel الثاني
+    RewriteRule ^tasks/?$ public/tasks/public/index.php [L]
+    RewriteRule ^tasks/(.*)$ public/tasks/public/$1 [L]
 
     # ----------------------------------------------------------------------
     # NEXT.JS FRONTEND REWRITES (Inside public/front)
