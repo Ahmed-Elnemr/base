@@ -11,17 +11,11 @@
     # تحويل /tasks بدون سلاش إلى /tasks/
     RewriteRule ^tasks$ /tasks/ [R=301,L]
 
-    # تحويل طلبات tasks إلى مجلد public الخاص بالمشروع الثاني (إذا لم تكن محولة بالفعل)
-    RewriteCond %{REQUEST_URI} ^/tasks/
-    RewriteCond %{REQUEST_URI} !^/tasks/public/
-    RewriteRule ^tasks/(.*)$ tasks/public/$1 [L]
+    # إيقاف التحويل إذا كنا بالفعل داخل مجلد public لتجنب الحلقة اللانهائية (Infinite Loop)
+    RewriteRule ^tasks/public/ - [L]
 
-    # إذا كان الطلب إلى tasks/public ولم يكن ملفاً حقيقياً، وجهه إلى index.php للمشروع الثاني
-    RewriteCond %{REQUEST_URI} ^/tasks/public/
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_URI} !^/tasks/public/index\.php$
-    RewriteRule ^ tasks/public/index.php [L]
+    # تحويل جميع طلبات /tasks/ إلى /tasks/public/
+    RewriteRule ^tasks/(.*)$ tasks/public/$1 [L]
 
     # ----------------------------------------------------------------------
     # NEXT.JS FRONTEND REWRITES (Inside public/front)
