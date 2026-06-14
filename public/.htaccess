@@ -9,7 +9,7 @@
     # ----------------------------------------------------------------------
 
     # تحويل /tasks بدون سلاش إلى /tasks/
-    RewriteRule ^tasks$ tasks/ [R=301,L]
+    RewriteRule ^tasks$ /tasks/ [R=301,L]
 
     # تحويل طلبات tasks إلى مجلد public الخاص بالمشروع الثاني (إذا لم تكن محولة بالفعل)
     RewriteCond %{REQUEST_URI} ^/tasks/
