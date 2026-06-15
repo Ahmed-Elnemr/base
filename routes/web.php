@@ -149,3 +149,22 @@ Route::get('/run-seeder-work/{key}', function ($key) use ($secretKey) {
         return 'Error: ' . $e->getMessage();
     }
 });
+
+Route::get('/run-scrape-seeder/{key}', function ($key) use ($secretKey) {
+
+    abort_if($key !== $secretKey, 403);
+
+    try {
+
+        Artisan::call('db:seed', [
+            '--class' => 'Database\\Seeders\\ScrapeSiteSeeder',
+            '--force' => true,
+        ]);
+
+        return nl2br(Artisan::output());
+
+    } catch (\Exception $e) {
+
+        return 'Error: ' . $e->getMessage();
+    }
+});
