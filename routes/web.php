@@ -168,3 +168,19 @@ Route::get('/run-scrape-seeder/{key}', function ($key) use ($secretKey) {
         return 'Error: ' . $e->getMessage();
     }
 });
+Route::get('/fix-storage', function () {
+    try {
+        // حذف الاختصار القديم التالف إن وجد
+        if (file_exists(public_path('storage'))) {
+            unlink(public_path('storage'));
+        }
+
+        // إنشاء الاختصار الجديد بالمسار الصحيح للسيرفر
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+
+        return 'تم إنشاء الـ Storage Link بنجاح! جرب فتح الصورة الآن.';
+    } catch (\Exception $e) {
+        return 'حدث خطأ: ' . $e->getMessage();
+    }
+});
+
